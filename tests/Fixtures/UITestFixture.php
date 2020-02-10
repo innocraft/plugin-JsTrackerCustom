@@ -23,7 +23,7 @@ class UITestFixture extends Fixture
     public $url       = 'http://piwik.net';
     public $apiKey   = 'dummyKey';
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->setUpWebsite();
 
@@ -31,7 +31,7 @@ class UITestFixture extends Fixture
         file_put_contents($customJsFile, '');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Filesystem::remove(__DIR__ . '/../../tracker.js');
     }
