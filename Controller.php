@@ -12,7 +12,7 @@ use Piwik\Nonce;
 use Piwik\Notification;
 use Piwik\Piwik;
 use Piwik\Plugin\ControllerAdmin;
-use Piwik\Plugins\CustomPiwikJs\CustomPiwikJs;
+use Piwik\Plugins\CustomJsTracker\CustomJsTracker;
 use Piwik\View;
 
 /**
@@ -37,7 +37,7 @@ class Controller extends ControllerAdmin
 
             file_put_contents($customJsFile, Common::unsanitizeInputValue($customJs));
 
-            $instance = new CustomPiwikJs();
+            $instance = new CustomJsTracker();
             $instance->updateTracker();
 
             $notification = new Notification(Piwik::translate('General_YourChangesHaveBeenSaved'));
