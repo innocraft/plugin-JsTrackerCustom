@@ -15,6 +15,8 @@ describe("CustomJs", function () {
         await page.waitForNetworkIdle();
         await page.type('[name="customJs"]', 'console.log("new code");');
         await page.click('button[type=submit]');
+        await page.waitForNetworkIdle();
+        await page.waitFor(250);
 
         pageWrap = await page.$('.pageWrap');
         expect(await pageWrap.screenshot()).to.matchImage('manage');

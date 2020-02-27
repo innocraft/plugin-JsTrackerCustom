@@ -7,12 +7,7 @@
  */
 namespace Piwik\Plugins\JsTrackerCustom\tests\Fixtures;
 
-use Piwik\Date;
 use Piwik\Filesystem;
-use Piwik\Plugin\Manager;
-use Piwik\Plugins\SearchEngineKeywordsPerformance\MeasurableSettings;
-use Piwik\Plugins\SearchEngineKeywordsPerformance\tests\Mocks\BingClient;
-use Piwik\Plugins\SearchEngineKeywordsPerformance\tests\Mocks\GoogleClient;
 use Piwik\Tests\Framework\Fixture;
 
 class UITestFixture extends Fixture
