@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "FileNotWritable": "Um benutzerdefiniertes JavaScript hinzufügen zu können, muss die Datei %1$s schreibbar sein.",
+        "AddCustomJs": "Benutzerdefinierten JavaScript code zu piwik.js hinzufügen",
+        "JsTrackerCustom": "Benutzerdefiniertes Tracker JS"
+    }
+}
