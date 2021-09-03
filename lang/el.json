@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Προσθήκη προσαρμοσμένου κώδικα JavaScript στο αρχείο σας piwik.js",
+        "FileNotWritable": "Για να μπορείτε να προσθέσετε προσαρμοσμένο κώδικα JavaScript, το αρχείο %1$s πρέπει να είναι εγγράψιμο.",
+        "JsTrackerCustom": "Προσαρμοσμένη Ιχνηλάτηση JS"
+    }
+}
