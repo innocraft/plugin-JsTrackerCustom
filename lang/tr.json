@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "piwik.js dosyanıza özel bir JavaScript izleme kodu ekleyin",
+        "FileNotWritable": "Özel JavaScript ekleyebilmek için %1$s dosyasının yazılabilir olması gerekir.",
+        "JsTrackerCustom": "Özel İzleme JS"
+    }
+}
