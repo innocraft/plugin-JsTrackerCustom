@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Додайте власний код JavaScript у свій piwik.js",
+        "FileNotWritable": "Щоб мати можливість додати власний JavaScript, файл %1$s має бути доступним для запису.",
+        "JsTrackerCustom": "Custom Tracker JS"
+    }
+}
