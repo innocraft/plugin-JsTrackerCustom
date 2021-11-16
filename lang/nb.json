@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Legg til egendefinert JavaScript-kode i din piwik.js",
+        "FileNotWritable": "For å kunne legge til egendefinert JavaScript må filen «%1$s» være skrivbar.",
+        "JsTrackerCustom": "Egendefinert sporer-JS"
+    }
+}
