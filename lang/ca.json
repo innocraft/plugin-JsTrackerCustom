@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Afegiu codi JavaScript personalitzat al vostre piwik.js",
+        "FileNotWritable": "Per poder afegir JavaScript personalitzat, el fitxer %1$s s'ha de poder escriure.",
+        "JsTrackerCustom": "Seguiment personalitzat JS"
+    }
+}
