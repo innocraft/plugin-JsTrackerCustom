@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Добавьте пользовательский код JavaScript в ваш piwik.js",
+        "FileNotWritable": "Чтобы иметь возможность добавлять пользовательский код JavaScript, файл %1$s должен быть доступен для записи.",
+        "JsTrackerCustom": "Пользовательский счётчик JS"
+    }
+}
