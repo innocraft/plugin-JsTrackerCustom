@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Menambahkan kode JavaScript khusus ke piwik.js Anda",
+        "FileNotWritable": "Untuk dapat menambahkan JavaScript khusus, berkas %1$s harus dapat ditulis.",
+        "JsTrackerCustom": "Pelacak JS Khusus"
+    }
+}
