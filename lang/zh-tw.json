@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "將自定 JavaScript 程式碼加入你的 piwik.js",
+        "FileNotWritable": "為加入自定 JavaScript 程式碼，%1$s 檔案需要可被寫入。",
+        "JsTrackerCustom": "自定追蹤器 JS"
+    }
+}
