@@ -1,1 +1,7 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "piwik.js에 사용자 지정 JavaScript 코드 추가",
+        "FileNotWritable": "사용자 지정 JavaScript를 추가하려면 %1$s 파일에 쓸 수 있어야 합니다.",
+        "JsTrackerCustom": "사용자 지정 추적기 JS"
+    }
+}
