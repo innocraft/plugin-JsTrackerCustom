@@ -14,5 +14,16 @@ use Piwik\Plugin;
  */
 class JsTrackerCustom extends Plugin
 {
+    public function registerEvents()
+    {
+        return [
+            'Translate.getClientSideTranslationKeys' => 'getClientSideTranslationKeys',
+        ];
+    }
 
+    public function getClientSideTranslationKeys(&$result)
+    {
+        $result[] = 'JsTrackerCustom_AddCustomJs';
+        $result[] = 'JsTrackerCustom_JsTrackerCustom';
+    }
 }
