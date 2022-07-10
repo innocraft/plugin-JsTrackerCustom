@@ -6,8 +6,8 @@
 
     <div
         vue-entry="JsTrackerCustom.Admin"
-        initial-custom-js="{{ customJs|default(null)|json_encode|e('html_attr') }}"
-        custom-js-nonce="{{ customJsNonce|json_encode|e('html_attr') }}"
+        initial-custom-js="{{ customJs|default(null)|json_encode }}"
+        custom-js-nonce="{{ customJsNonce|json_encode }}"
     ></div>
 
 {% endblock %}
