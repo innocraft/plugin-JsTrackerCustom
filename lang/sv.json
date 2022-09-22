@@ -1,1 +1,8 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Lägg till anpassad JavaScript-kod i din piwik.js",
+        "DirectoryOrFileNotWritable": "För att kunna lägga till anpassad JavaScript måste katalogen %1$s vara skrivbar eller filen %2$s vara skrivbar.",
+        "FileNotWritable": "För att kunna lägga till anpassad JavaScript måste filen %1$s vara skrivbar.",
+        "JsTrackerCustom": "Anpassad Tracker JS"
+    }
+}
