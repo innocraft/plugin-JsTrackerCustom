@@ -1,1 +1,8 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Voeg aangepaste JavaScript-code toe aan uw piwik.js",
+        "DirectoryOrFileNotWritable": "Om aangepast JavaScript toe te voegen, moet de map %1$s beschrijfbaar zijn of het bestand %2$s moet beschrijfbaar zijn.",
+        "FileNotWritable": "Om aangepast JavaScript toe te kunnen voegen, moet het bestand %1$s beschrijfbaar zijn.",
+        "JsTrackerCustom": "Aangepaste tracker JS"
+    }
+}
