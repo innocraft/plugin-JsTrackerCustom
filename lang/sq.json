@@ -1,6 +1,7 @@
 {
     "JsTrackerCustom": {
         "AddCustomJs": "Shtoni te piwik.js juaj kod vetjak JavaScript",
+        "DirectoryOrFileNotWritable": "Që të jeni në gjendje të shtoni JavaScript vetjak, drejtoria %1$s lypset të jetë e shkrueshme, ose kartela %2$s të jetë e shkrueshme.",
         "FileNotWritable": "Që të jeni në gjendje të shtoni JavaScript vetjak, kartela %1$s lypset të jetë e shkrueshme.",
         "JsTrackerCustom": "JS Vetjake Ndjekësi"
     }
