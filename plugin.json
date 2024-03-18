@@ -18,5 +18,6 @@
   "support": {
     "issues": "https://github.com/innocraft/plugin-JsTrackerCustom/issues",
     "source": "https://github.com/innocraft/plugin-JsTrackerCustom"
-  }
+  },
+  "category": "development"
 }
