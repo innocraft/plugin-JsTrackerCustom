@@ -1,1 +1,8 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Dodaj prilagođeni JavaScript kod u svoju piwik.js datoteku",
+        "DirectoryOrFileNotWritable": "Za dodavanje prilagođenog JavaScripta direktorij %1$s ili datoteka %2$s moraju dozvoliti pisanje.",
+        "FileNotWritable": "Za dodavanje prilagođenog JavaScripta datoteka %1$s mora dozvoliti pisanje.",
+        "JsTrackerCustom": "Prilogođeni JavaScript sustav praćenja"
+    }
+}
