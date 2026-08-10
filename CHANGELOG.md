@@ -1,5 +1,8 @@
 ## Changelog
 
+__6.0.0__
+* Compatibility with Matomo 6
+
 __5.0.2__
 * Added missing license file
 
