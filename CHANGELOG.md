@@ -1,5 +1,8 @@
 ## Changelog
 
+__5.0.3 - 2026-08-17__
+* Added code to harden the js save action
+
 __5.0.2__
 * Added missing license file
 

@@ -9,12 +9,12 @@
 
 namespace Piwik\Plugins\JsTrackerCustom;
 
-use Piwik\Common;
 use Piwik\Nonce;
 use Piwik\Notification;
 use Piwik\Piwik;
 use Piwik\Plugin\ControllerAdmin;
 use Piwik\Plugins\CustomJsTracker\CustomJsTracker;
+use Piwik\Request;
 use Piwik\View;
 
 /**
@@ -36,13 +36,13 @@ class Controller extends ControllerAdmin
             $notification = new Notification(Piwik::translate('JsTrackerCustom_DirectoryOrFileNotWritable', array(__DIR__, $customJsFile)));
             $notification->context = Notification::CONTEXT_ERROR;
             Notification\Manager::notify('JsTrackerCustom_FileNotWritable', $notification);
-        } elseif (
-            ($nonce = Common::getRequestVar('customJsNonce', '', 'string')) &&
-            ($customJs = Common::getRequestVar('customJs', '', 'string'))
-        ) {
+        } elseif ($nonce = Request::fromPost()->getStringParameter('customJsNonce', '')) {
             Nonce::checkNonce('JsTrackerCustom.save', $nonce);
 
-            file_put_contents($customJsFile, Common::unsanitizeInputValue($customJs));
+            // an empty value is saved as well, so all custom JavaScript can be removed again
+            $customJs = Request::fromPost()->getStringParameter('customJs', '');
+
+            file_put_contents($customJsFile, $customJs);
 
             $instance = new CustomJsTracker();
             $instance->updateTracker();
