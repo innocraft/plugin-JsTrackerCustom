@@ -72,17 +72,11 @@ class Controller extends ControllerAdmin
      */
     private function checkForUnusedDefaultFile($customJsFile)
     {
-        $defaultFile = CustomJsFile::getDefaultPath();
-
-        if ($customJsFile === $defaultFile || !is_readable($defaultFile)) {
+        if (!CustomJsFile::hasUnusedDefaultFile($customJsFile)) {
             return;
         }
 
-        if ('' === trim((string) file_get_contents($defaultFile))) {
-            return;
-        }
-
-        $notification = new Notification(Piwik::translate('JsTrackerCustom_UnusedDefaultFile', array($customJsFile, $defaultFile)));
+        $notification = new Notification(Piwik::translate('JsTrackerCustom_UnusedDefaultFile', array($customJsFile, CustomJsFile::getDefaultPath())));
         $notification->context = Notification::CONTEXT_WARNING;
         Notification\Manager::notify('JsTrackerCustom_UnusedDefaultFile', $notification);
     }

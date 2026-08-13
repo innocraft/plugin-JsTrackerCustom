@@ -77,6 +77,24 @@ class CustomJsFile
         return $customJsFile;
     }
 
+    /**
+     * Returns true when the custom JavaScript is stored somewhere else, while a file within the plugin directory is
+     * still added to the JavaScript tracker. Such a file can no longer be edited or removed on the admin page.
+     *
+     * @param string $customJsFile The file the custom JavaScript is currently stored in
+     * @return bool
+     */
+    public static function hasUnusedDefaultFile($customJsFile)
+    {
+        $defaultFile = self::getDefaultPath();
+
+        if ($customJsFile === $defaultFile || !is_readable($defaultFile)) {
+            return false;
+        }
+
+        return '' !== trim((string) file_get_contents($defaultFile));
+    }
+
     private static function isAbsolutePath(string $path): bool
     {
         return 0 === strpos($path, '/') || 1 === preg_match('/^[a-zA-Z]:[\\\\\/]/', $path);

@@ -21,6 +21,32 @@ use Piwik\Tests\Framework\TestCase\IntegrationTestCase;
 class CustomJsFileTest extends IntegrationTestCase
 {
     /**
+     * @var string|null Content of the file within the plugin directory before the test, null when it does not exist
+     */
+    private $defaultFileContent;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        // the file within the plugin directory belongs to the installation, it is not part of the repository
+        $this->defaultFileContent = $this->readDefaultFile();
+    }
+
+    public function tearDown(): void
+    {
+        if (null === $this->defaultFileContent) {
+            if (file_exists(CustomJsFile::getDefaultPath())) {
+                unlink(CustomJsFile::getDefaultPath());
+            }
+        } else {
+            file_put_contents(CustomJsFile::getDefaultPath(), $this->defaultFileContent);
+        }
+
+        parent::tearDown();
+    }
+
+    /**
      * The default location must not change, an existing file needs to keep being used after an update
      */
     public function testGetPathUsesTrackerJsNextToThePluginFilesByDefault()
@@ -67,5 +93,61 @@ class CustomJsFileTest extends IntegrationTestCase
             'null' => [null],
             'not a string' => [['/path/to/tracker.js']],
         ];
+    }
+
+    public function testHasUnusedDefaultFileIsFalseWhenTheDefaultLocationIsUsed()
+    {
+        $this->writeDefaultFile('console.log("in use");');
+
+        $this->assertFalse(CustomJsFile::hasUnusedDefaultFile(CustomJsFile::getDefaultPath()));
+    }
+
+    public function testHasUnusedDefaultFileIsTrueWhenAFileIsLeftBehindInThePluginDirectory()
+    {
+        $this->writeDefaultFile('console.log("left behind");');
+
+        $this->assertTrue(CustomJsFile::hasUnusedDefaultFile('/path/to/site/specific/tracker.js'));
+    }
+
+    public function testHasUnusedDefaultFileIsFalseWhenNoFileIsLeftBehindInThePluginDirectory()
+    {
+        $this->removeDefaultFile();
+
+        $this->assertFalse(CustomJsFile::hasUnusedDefaultFile('/path/to/site/specific/tracker.js'));
+    }
+
+    /**
+     * @dataProvider getEmptyFileContents
+     */
+    public function testHasUnusedDefaultFileIsFalseWhenTheFileLeftBehindHasNoCode($content)
+    {
+        $this->writeDefaultFile($content);
+
+        $this->assertFalse(CustomJsFile::hasUnusedDefaultFile('/path/to/site/specific/tracker.js'));
+    }
+
+    public function getEmptyFileContents()
+    {
+        return [
+            'empty' => [''],
+            'whitespace only' => ["\n \n"],
+        ];
+    }
+
+    private function readDefaultFile()
+    {
+        return is_readable(CustomJsFile::getDefaultPath()) ? file_get_contents(CustomJsFile::getDefaultPath()) : null;
+    }
+
+    private function writeDefaultFile($content)
+    {
+        file_put_contents(CustomJsFile::getDefaultPath(), $content);
+    }
+
+    private function removeDefaultFile()
+    {
+        if (file_exists(CustomJsFile::getDefaultPath())) {
+            unlink(CustomJsFile::getDefaultPath());
+        }
     }
 }

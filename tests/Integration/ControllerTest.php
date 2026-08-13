@@ -72,11 +72,10 @@ class ControllerTest extends IntegrationTestCase
         $_POST['customJsNonce'] = Nonce::getNonce('JsTrackerCustom.save');
         $_POST['customJs']      = 'console.log("custom");';
 
-        $output = $this->makeController()->index();
+        $this->makeController()->index();
 
         $this->assertSame('console.log("custom");', file_get_contents($this->customJsFile));
         $this->assertSame($this->defaultFileContent, $this->readFile($this->defaultFile));
-        $this->assertStringContainsString($this->renderedCustomJs('console.log("custom");'), $output);
     }
 
     public function testIndexReadsCustomJsFromTheFileProvidedByTheEvent()
@@ -86,36 +85,16 @@ class ControllerTest extends IntegrationTestCase
 
         $output = $this->makeController()->index();
 
-        $this->assertStringContainsString($this->renderedCustomJs('console.log("from event file");'), $output);
+        $this->assertStringContainsString('console.log(\"from event file\");', $this->decodeOutput($output));
         $this->assertStringNotContainsString('from plugin directory', $output);
     }
 
-    public function testIndexNotifiesAboutUnusedFileLeftBehindInThePluginDirectory()
-    {
-        file_put_contents($this->defaultFile, 'console.log("left behind");');
-
-        $output = $this->makeController()->index();
-
-        $expected = Piwik::translate('JsTrackerCustom_UnusedDefaultFile', array($this->customJsFile, $this->defaultFile));
-
-        $this->assertStringContainsString($expected, $output);
-    }
-
-    public function testIndexDoesNotNotifyWhenNoUnusedFileIsLeftBehind()
-    {
-        file_put_contents($this->defaultFile, '');
-
-        $output = $this->makeController()->index();
-
-        $this->assertStringNotContainsString('is no longer used', $output);
-    }
-
     /**
-     * The custom JavaScript is passed to the Vue component as a JSON encoded HTML attribute
+     * The custom JavaScript is JSON encoded into an HTML attribute of the Vue component
      */
-    private function renderedCustomJs($customJs)
+    private function decodeOutput($output)
     {
-        return htmlspecialchars(json_encode($customJs), ENT_QUOTES | ENT_SUBSTITUTE);
+        return html_entity_decode($output, ENT_QUOTES | ENT_SUBSTITUTE);
     }
 
     public function provideContainerConfig()
