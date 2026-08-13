@@ -3,6 +3,7 @@
     "JsTrackerCustom": "Custom Tracker JS",
     "AddCustomJs": "Add custom JavaScript code to your piwik.js",
     "DirectoryOrFileNotWritable": "To be able to add custom JavaScript, the directory %1$s needs to be writable or the file %2$s needs to be writable.",
-    "FileNotWritable": "To be able to add custom JavaScript, the file %1$s needs to be writable."
+    "FileNotWritable": "To be able to add custom JavaScript, the file %1$s needs to be writable.",
+    "UnusedDefaultFile": "Your custom JavaScript is stored in %1$s. The file %2$s is no longer used, but its content is still added to the JavaScript tracker. Please delete this file."
   }
 }
