@@ -26,14 +26,15 @@ class Controller extends ControllerAdmin
     {
         Piwik::checkUserHasSuperUserAccess();
 
-        $customJsFile = __DIR__ . '/tracker.js';
+        $customJsFile = CustomJsFile::getPath();
+        $customJsDir  = dirname($customJsFile);
 
-        if (is_writable(__DIR__) && !file_exists($customJsFile)) {
+        if (is_writable($customJsDir) && !file_exists($customJsFile)) {
             file_put_contents($customJsFile, '');
         }
 
-        if (!is_writable(__DIR__) || !is_writable($customJsFile)) {
-            $notification = new Notification(Piwik::translate('JsTrackerCustom_DirectoryOrFileNotWritable', array(__DIR__, $customJsFile)));
+        if (!is_writable($customJsDir) || !is_writable($customJsFile)) {
+            $notification = new Notification(Piwik::translate('JsTrackerCustom_DirectoryOrFileNotWritable', array($customJsDir, $customJsFile)));
             $notification->context = Notification::CONTEXT_ERROR;
             Notification\Manager::notify('JsTrackerCustom_FileNotWritable', $notification);
         } elseif ($nonce = Request::fromPost()->getStringParameter('customJsNonce', '')) {
@@ -52,11 +53,31 @@ class Controller extends ControllerAdmin
             Notification\Manager::notify('JsTrackerCustom_Saved', $notification);
         }
 
+        $this->checkForUnusedDefaultFile($customJsFile);
+
         $view = new View('@JsTrackerCustom/index');
         $this->setBasicVariablesView($view);
-        $view->customJs = file_get_contents($customJsFile);
+        $view->customJs = file_exists($customJsFile) ? file_get_contents($customJsFile) : '';
         $view->customJsNonce = Nonce::getNonce('JsTrackerCustom.save');
 
         return $view->render();
+    }
+
+    /**
+     * The file within the plugin directory is added to the JavaScript tracker no matter where the custom JavaScript
+     * is stored. When another plugin changed the location, any code left behind in the plugin directory would still
+     * be tracked while it can no longer be edited or removed through this page.
+     *
+     * @param string $customJsFile The file the custom JavaScript is currently stored in
+     */
+    private function checkForUnusedDefaultFile($customJsFile)
+    {
+        if (!CustomJsFile::hasUnusedDefaultFile($customJsFile)) {
+            return;
+        }
+
+        $notification = new Notification(Piwik::translate('JsTrackerCustom_UnusedDefaultFile', array($customJsFile, CustomJsFile::getDefaultPath())));
+        $notification->context = Notification::CONTEXT_WARNING;
+        Notification\Manager::notify('JsTrackerCustom_UnusedDefaultFile', $notification);
     }
 }
