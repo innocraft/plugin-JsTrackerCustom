@@ -10,7 +10,6 @@
 namespace Piwik\Plugins\JsTrackerCustom\tests\Integration;
 
 use Piwik\Piwik;
-use Piwik\Plugin\Manager;
 use Piwik\Plugins\JsTrackerCustom\CustomJsFile;
 use Piwik\Tests\Framework\TestCase\IntegrationTestCase;
 
@@ -21,11 +20,21 @@ use Piwik\Tests\Framework\TestCase\IntegrationTestCase;
  */
 class CustomJsFileTest extends IntegrationTestCase
 {
-    public function testGetPathUsesTrackerJsInPluginDirectoryByDefault()
+    /**
+     * The default location must not change, an existing file needs to keep being used after an update
+     */
+    public function testGetPathUsesTrackerJsNextToThePluginFilesByDefault()
     {
-        $expected = rtrim(Manager::getPluginDirectory('JsTrackerCustom'), '/') . '/tracker.js';
+        $expected = dirname(__DIR__, 2) . '/tracker.js';
+        $actual   = CustomJsFile::getPath();
 
-        $this->assertSame($expected, CustomJsFile::getPath());
+        $this->assertSame(basename($expected), basename($actual));
+        $this->assertSame(realpath(dirname($expected)), realpath(dirname($actual)));
+    }
+
+    public function testGetDefaultPathIsUsedWhenNoPluginChangesTheLocation()
+    {
+        $this->assertSame(CustomJsFile::getDefaultPath(), CustomJsFile::getPath());
     }
 
     public function testGetPathCanBeChangedThroughEvent()

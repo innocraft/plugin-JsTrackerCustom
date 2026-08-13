@@ -40,11 +40,12 @@ class ControllerTest extends IntegrationTestCase
         $this->customJsFile = $this->customJsDir . '/tracker.js';
         Filesystem::mkdir($this->customJsDir);
 
-        // the plugin directory file and the generated tracker are part of the checkout, they need to be restored
-        $this->defaultFile          = CustomJsFile::getDefaultPath();
-        $this->defaultFileContent   = is_readable($this->defaultFile) ? file_get_contents($this->defaultFile) : null;
-        $this->generatedTrackerFile = PIWIK_DOCUMENT_ROOT . '/matomo.js';
-        $this->generatedTrackerContent = is_readable($this->generatedTrackerFile) ? file_get_contents($this->generatedTrackerFile) : null;
+        // the file within the plugin directory and the generated tracker belong to the installation, they need to be
+        // restored. The file within the plugin directory does not exist in a fresh checkout, it is not in the repository
+        $this->defaultFile             = CustomJsFile::getDefaultPath();
+        $this->defaultFileContent      = $this->readFile($this->defaultFile);
+        $this->generatedTrackerFile    = PIWIK_DOCUMENT_ROOT . '/matomo.js';
+        $this->generatedTrackerContent = $this->readFile($this->generatedTrackerFile);
 
         Piwik::addAction('JsTrackerCustom.getCustomJsFilePath', function (&$customJsFile) {
             $customJsFile = $this->customJsFile;
@@ -74,7 +75,7 @@ class ControllerTest extends IntegrationTestCase
         $output = $this->makeController()->index();
 
         $this->assertSame('console.log("custom");', file_get_contents($this->customJsFile));
-        $this->assertSame('', (string) file_get_contents($this->defaultFile));
+        $this->assertSame($this->defaultFileContent, $this->readFile($this->defaultFile));
         $this->assertStringContainsString($this->renderedCustomJs('console.log("custom");'), $output);
     }
 
@@ -129,6 +130,14 @@ class ControllerTest extends IntegrationTestCase
     private function makeController()
     {
         return StaticContainer::getContainer()->make(Controller::class);
+    }
+
+    /**
+     * @return string|null Null when the file does not exist
+     */
+    private function readFile($file)
+    {
+        return is_readable($file) ? file_get_contents($file) : null;
     }
 
     private function restoreFile($file, $content)
