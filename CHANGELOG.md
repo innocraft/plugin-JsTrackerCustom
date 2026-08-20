@@ -2,6 +2,7 @@
 
 __6.0.0__
 * Compatibility with Matomo 6
+* Added code to harden the js save action
 
 __5.0.2__
 * Added missing license file
