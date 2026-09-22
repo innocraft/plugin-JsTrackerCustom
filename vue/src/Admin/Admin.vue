@@ -12,7 +12,10 @@
   >
     <h3>{{ translate('JsTrackerCustom_AddCustomJs') }}</h3>
 
-    <p>{{ translate('JsTrackerCustom_CustomJsAppliesToAllSites') }}</p>
+    <p>
+      <strong>{{ translate('General_Note') }}</strong>:
+      {{ translate('JsTrackerCustom_CustomJsAppliesToAllSites') }}
+    </p>
 
     <form method="post" action="">
       <textarea name="customJs" :value="customJs"></textarea>
