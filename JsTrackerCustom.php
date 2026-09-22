@@ -26,6 +26,7 @@ class JsTrackerCustom extends Plugin
     public function getClientSideTranslationKeys(&$result)
     {
         $result[] = 'JsTrackerCustom_AddCustomJs';
+        $result[] = 'JsTrackerCustom_CustomJsAppliesToAllSites';
         $result[] = 'JsTrackerCustom_JsTrackerCustom';
     }
 }

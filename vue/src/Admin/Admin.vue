@@ -12,6 +12,8 @@
   >
     <h3>{{ translate('JsTrackerCustom_AddCustomJs') }}</h3>
 
+    <p>{{ translate('JsTrackerCustom_CustomJsAppliesToAllSites') }}</p>
+
     <form method="post" action="">
       <textarea name="customJs" :value="customJs"></textarea>
       <input type="hidden" name="customJsNonce" :value="customJsNonce">
