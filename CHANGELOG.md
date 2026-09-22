@@ -1,5 +1,8 @@
 ## Changelog
 
+__5.0.4 - 2026-09-28__
+* Added a note that the custom JavaScript is added to the global JavaScript tracker file and applies to all sites
+
 __5.0.3 - 2026-08-17__
 * Added code to harden the js save action
 
