@@ -1,6 +1,6 @@
 {
   "name": "JsTrackerCustom",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "This plugin allows you to add custom JavaScript to Matomos tracking code",
   "keywords": ["tracker"],
   "license": "GPL v3+",

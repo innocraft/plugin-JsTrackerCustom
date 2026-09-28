@@ -1,5 +1,8 @@
 ## Changelog
 
+__6.0.1 - 2026-09-28__
+* Added a note that the custom JavaScript is added to the global JavaScript tracker file and applies to all sites
+
 __6.0.0__
 * Compatibility with Matomo 6
 * Added code to harden the js save action
