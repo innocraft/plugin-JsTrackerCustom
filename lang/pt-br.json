@@ -1,6 +1,7 @@
 {
     "JsTrackerCustom": {
         "AddCustomJs": "Adicione o código JavaScript personalizado ao seu piwik.js",
+        "CustomJsAppliesToAllSites": "O código que você adiciona aqui é armazenado no arquivo global de rastreamento JavaScript e, portanto, é carregado em todos os seus sites. Se você quiser adicionar JavaScript apenas para um site específico, recomendamos usar uma tag de HTML personalizado no Tag Manager.",
         "DirectoryOrFileNotWritable": "Para poder adicionar JavaScript personalizado, o diretório %1$s precisa ser gravável ou o arquivo %2$s precisa ser gravável.",
         "FileNotWritable": "Para poder adicionar JavaScript personalizado, o arquivo %1$s precisa ser gravável.",
         "JsTrackerCustom": "Rastreador JS personalizado"
