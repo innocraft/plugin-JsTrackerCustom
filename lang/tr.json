@@ -1,6 +1,7 @@
 {
     "JsTrackerCustom": {
         "AddCustomJs": "piwik.js dosyanıza özel bir JavaScript izleme kodu ekleyin",
+        "CustomJsAppliesToAllSites": "Buraya eklediğiniz kod genel JavaScript izleyici dosyasında saklanır ve bu nedenle tüm siteleriniz için yüklenir. Yalnızca bir site için JavaScript eklemek istiyorsanız, bunun yerine Etiket Yöneticisi içinden bir özel HTML etiketi kullanmanızı öneririz.",
         "DirectoryOrFileNotWritable": "Özel JavaScript ekleyebilmek için %1$s klasörünün ya da %2$s dosyasının yazılabilir olması gerekir.",
         "FileNotWritable": "Özel JavaScript ekleyebilmek için %1$s dosyasının yazılabilir olması gerekir.",
         "JsTrackerCustom": "Özel İzleme JS"
