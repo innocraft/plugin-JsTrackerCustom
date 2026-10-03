@@ -1,6 +1,7 @@
 {
     "JsTrackerCustom": {
         "AddCustomJs": "將自訂 JavaScript 程式碼加入你的 piwik.js",
+        "CustomJsAppliesToAllSites": "你在這裡加入的程式碼會儲存在全域的 JavaScript 追蹤器檔案中，因此你所有的網站都會載入它。如果你只想為單一網站加入 JavaScript，我們建議改用代碼管理工具中的自訂 HTML 標籤。",
         "DirectoryOrFileNotWritable": "為了能夠新增自訂 JavaScript，目錄 %1$s 或檔案 %2$s 需要可寫入權限。",
         "FileNotWritable": "為加入自訂 JavaScript 程式碼，%1$s 檔案需要可被寫入。",
         "JsTrackerCustom": "自訂追蹤器 JS"
