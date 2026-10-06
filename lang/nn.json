@@ -1,1 +1,9 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Legg til eigendefinert JavaScript-kode i piwik.js",
+        "CustomJsAppliesToAllSites": "Koden du legg til her, blir lagra i den globale JavaScript-sporingsfila og blir difor lasta for alle nettstadene dine. Viss du berre vil leggje til JavaScript for éin nettstad, tilrår vi heller ein eigendefinert HTML-tagg i Tag Manager.",
+        "DirectoryOrFileNotWritable": "For å kunne leggje til eigendefinert JavaScript må mappa %1$s eller fila %2$s vere skrivbar.",
+        "FileNotWritable": "For å kunne leggje til eigendefinert JavaScript må fila %1$s vere skrivbar.",
+        "JsTrackerCustom": "Eigendefinert sporings-JS"
+    }
+}
