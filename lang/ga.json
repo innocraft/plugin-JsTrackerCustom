@@ -1,6 +1,7 @@
 {
     "JsTrackerCustom": {
         "AddCustomJs": "Cuir cód JavaScript saincheaptha le do piwik.js",
+        "CustomJsAppliesToAllSites": "Stóráiltear an cód a chuireann tú leis anseo sa chomhad rianaithe JavaScript domhanda, agus dá bhrí sin, déantar é a luchtú chun do shuíomhanna uile. Má theastaíonn uait JavaScript a chur le suíomh amháin, molaimid duit cluaisín HTML Saincheaptha a úsáid i Tag Manager ina ionad sin.",
         "DirectoryOrFileNotWritable": "Chun JavaScript saincheaptha a chur leis, ní mór an t-eolaire %1$s a bheith inscríofa nó caithfidh an comhad %2$s a bheith inscríofa.",
         "FileNotWritable": "Chun JavaScript saincheaptha a chur leis, ní mór an comhad %1$s a bheith inscríofa.",
         "JsTrackerCustom": "Lorgaire Saincheaptha JS"
