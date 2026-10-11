@@ -1,6 +1,7 @@
 {
     "JsTrackerCustom": {
         "AddCustomJs": "Přidání vlastního kódu JavaScriptu do souboru piwik.js",
+        "CustomJsAppliesToAllSites": "Kód, který zde přidáte, se uloží do globálního souboru JavaScript trackeru, a proto se načte pro všechny vaše weby. Chcete-li přidat JavaScript pouze pro jeden web, doporučujeme místo toho použít značku Vlastní HTML ve Správci značek.",
         "DirectoryOrFileNotWritable": "Aby bylo možné přidat vlastní JavaScript, musí být adresář %1$s zapisovatelný nebo soubor %2$s zapisovatelný.",
         "FileNotWritable": "Aby bylo možné přidat vlastní JavaScript, musí být soubor %1$s zapisovatelný.",
         "JsTrackerCustom": "Vlastní tracker JS"
