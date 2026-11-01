@@ -1,6 +1,7 @@
 {
     "JsTrackerCustom": {
         "AddCustomJs": "Benutzerdefinierten JavaScript-Code zu piwik.js hinzufügen",
+        "CustomJsAppliesToAllSites": "Der hier hinzugefügte Code wird in der globalen JavaScript-Tracker-Datei gespeichert und daher für alle Ihre Websites geladen. Wenn Sie JavaScript nur für eine Website hinzufügen möchten, empfehlen wir stattdessen ein „Custom HTML“-Tag im Tag Manager.",
         "DirectoryOrFileNotWritable": "Um benutzerdefiniertes JavaScript hinzufügen zu können, müssen das Verzeichnis %1$s oder die Datei %2$s schreibbar sein.",
         "FileNotWritable": "Um benutzerdefiniertes JavaScript hinzufügen zu können, muss die Datei %1$s schreibbar sein.",
         "JsTrackerCustom": "Benutzerdefiniertes Tracker-JS"
