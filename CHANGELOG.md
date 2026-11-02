@@ -1,5 +1,8 @@
 ## Changelog
 
+__6.0.2__
+* Fixed the note that the custom JavaScript applies to all sites not being displayed
+
 __6.0.1 - 2026-09-28__
 * Added a note that the custom JavaScript is added to the global JavaScript tracker file and applies to all sites
 
