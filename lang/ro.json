@@ -1,1 +1,9 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "Adăugați cod JavaScript personalizat în piwik.js",
+        "CustomJsAppliesToAllSites": "Codul pe care îl adăugați aici este stocat în fișierul global al tracker-ului JavaScript și, prin urmare, este încărcat pentru toate site-urile dumneavoastră. Dacă doriți să adăugați JavaScript pentru un singur site, vă recomandăm să folosiți în schimb o etichetă Custom HTML în Tag Manager.",
+        "DirectoryOrFileNotWritable": "Pentru a putea adăuga JavaScript personalizat, directorul %1$s sau fișierul %2$s trebuie să aibă permisiuni de scriere.",
+        "FileNotWritable": "Pentru a putea adăuga JavaScript personalizat, fișierul %1$s trebuie să aibă permisiuni de scriere.",
+        "JsTrackerCustom": "Custom Tracker JS"
+    }
+}
