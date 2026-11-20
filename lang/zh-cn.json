@@ -1,1 +1,9 @@
-{}
+{
+    "JsTrackerCustom": {
+        "AddCustomJs": "向您的 piwik.js 添加自定义 JavaScript 代码",
+        "CustomJsAppliesToAllSites": "您在此处添加的代码存储在全局 JavaScript 跟踪器文件中，因此会为您的所有网站加载。如果您只想为一个网站添加 JavaScript，我们建议改用 Tag Manager 中的自定义 HTML 标签。",
+        "DirectoryOrFileNotWritable": "要添加自定义 JavaScript，目录 %1$s 必须可写，或者文件 %2$s 必须可写。",
+        "FileNotWritable": "要添加自定义 JavaScript，文件 %1$s 必须可写。",
+        "JsTrackerCustom": "自定义跟踪器 JS"
+    }
+}
