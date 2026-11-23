@@ -1,5 +1,8 @@
 ## Changelog
 
+__6.0.3__ - 2026-11-23
+* Updated translations
+
 __6.0.2__ - 2026-11-09
 * Fixed the note that the custom JavaScript applies to all sites not being displayed
 
